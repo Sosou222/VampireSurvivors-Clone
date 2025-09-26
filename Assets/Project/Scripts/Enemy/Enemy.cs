@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     private Vector3 lastMoveDir = Vector3.zero;
     private Vector3 pointToMoveTo = Vector3.zero;
+    private ITargetPoint targetPoint = new TargetPointPlayer();
 
     private void Awake()
     {
@@ -20,7 +21,13 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        UpdateTargetPoint();
         MoveTowardPoint();
+    }
+
+    private void UpdateTargetPoint()
+    {
+        pointToMoveTo = targetPoint.GetTargetPoint();
     }
 
     private void MoveTowardPoint()

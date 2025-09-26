@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerInfoSystem.Instance.SetPlayer(null);
+        if(PlayerInfoSystem.Instance != null)
+            PlayerInfoSystem.Instance.SetPlayer(null);
     }
 
     void Update()
