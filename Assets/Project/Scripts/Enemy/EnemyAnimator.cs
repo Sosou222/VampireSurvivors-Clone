@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyAnimator : MonoBehaviour
 {
+    [SerializeField] Enemy enemy;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -10,20 +11,14 @@ public class EnemyAnimator : MonoBehaviour
 
     private void OnEnable()
     {
-        if (TryGetComponent(out Enemy enemy))
-        {
-            enemy.MovingStarted += (direction) => SetRunning(true, direction);
-            enemy.MovingStopped += (direction) => SetRunning(false, direction);
-        }
+        enemy.MovingStarted += (direction) => SetRunning(true, direction);
+        enemy.MovingStopped += (direction) => SetRunning(false, direction);
     }
 
     private void OnDisable()
     {
-        if (TryGetComponent(out Enemy enemy))
-        {
-            enemy.MovingStarted -= (direction) => SetRunning(true, direction);
-            enemy.MovingStopped -= (direction) => SetRunning(false, direction);
-        }
+        enemy.MovingStarted -= (direction) => SetRunning(true, direction);
+        enemy.MovingStopped -= (direction) => SetRunning(false, direction);
     }
 
     private void SetRunning(bool isRunning, Vector3 direction)

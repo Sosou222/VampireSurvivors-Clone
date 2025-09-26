@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed = 4.0f;
+    [SerializeField] private EnemyAnimator animator;
 
     public event Action<Vector3> MovingStarted;
     public event Action<Vector3> MovingStopped;
@@ -11,9 +12,9 @@ public class Enemy : MonoBehaviour
     private Vector3 lastMoveDir = Vector3.zero;
     private Vector3 pointToMoveTo = Vector3.zero;
 
-    void Start()
+    private void Awake()
     {
-        
+        animator.DeathAnimationFinished += Die;
     }
 
 
@@ -42,5 +43,10 @@ public class Enemy : MonoBehaviour
             }
             lastMoveDir = moveDir;
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
