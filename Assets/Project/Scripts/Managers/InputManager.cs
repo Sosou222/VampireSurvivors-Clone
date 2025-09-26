@@ -34,9 +34,13 @@ public class InputManager : PersistentSingleton<InputManager>
         return Mouse.current.position.ReadValue();
     }
 
-    public static bool IsMouseButtonDown()
+    public static bool IsMouseButtonDownThisFrame()
     {
         return Mouse.current.leftButton.wasPressedThisFrame;
+    }
+    public static bool IsMouseButtonDown()
+    {
+        return Mouse.current.leftButton.isPressed;
     }
 
     public static Vector2 GetPlayerMove()

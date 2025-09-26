@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
     public event Action<Vector3> MovingStarted;
     public event Action<Vector3> MovingStopped;
 
+    private Timer attackTimer;
 
     private Vector3 lastMoveDir = Vector3.zero;
+    private bool canAttack = false;
     void Start()
     {
-        
+        attackTimer = new Timer(1.0f,true,true);
+        attackTimer.Timeout += OnAttackTimeout;
     }
 
     private void OnEnable()
@@ -29,7 +32,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        attackTimer.Update(Time.deltaTime);
         MovePlayer();
+        TryAttack();
     }
 
     private void MovePlayer()
@@ -49,5 +54,20 @@ public class Player : MonoBehaviour
             }
             lastMoveDir = moveDir;
         }
+    }
+
+    private void TryAttack()
+    {
+        if(InputManager.IsMouseButtonDown() && canAttack)
+        {
+            canAttack = false;
+            attackTimer.Start();
+            Debug.Log("HI");
+        }
+    }
+
+    private void OnAttackTimeout()
+    {
+        canAttack = true;
     }
 }
