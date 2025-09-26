@@ -17,6 +17,18 @@ public class InputManager : PersistentSingleton<InputManager>
         playerInput.Player.Disable();
     }
 
+    public static void SetPlayerInputStatus(bool isEnabled)
+    {
+        if(isEnabled)
+        {
+            Instance.playerInput.Player.Enable();
+        }
+        else
+        {
+            Instance.playerInput.Player.Disable();
+        }
+    }
+
     public static Vector2 GetMouseScreenPosition()
     {
         return Mouse.current.position.ReadValue();
@@ -27,7 +39,7 @@ public class InputManager : PersistentSingleton<InputManager>
         return Mouse.current.leftButton.wasPressedThisFrame;
     }
 
-    public static Vector2 GetPlayerInput()
+    public static Vector2 GetPlayerMove()
     {
         return Instance.playerInput.Player.Move.ReadValue<Vector2>();
     }
