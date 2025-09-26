@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class EnemyAnimator : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+
+    public event Action DeathAnimationFinished;
 
     private void OnEnable()
     {
@@ -39,5 +42,10 @@ public class EnemyAnimator : MonoBehaviour
     private void TriggerDeath()
     {
         animator.SetTrigger("TrDeath");
+    }
+
+    private void OnDeathAniamtionEndCallback()
+    {
+        DeathAnimationFinished?.Invoke();
     }
 }
