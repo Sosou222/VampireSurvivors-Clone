@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class InputManager : Singleton<InputManager>
+public class InputManager : PersistentSingleton<InputManager>
 {
     private PlayerInput playerInput;
 
