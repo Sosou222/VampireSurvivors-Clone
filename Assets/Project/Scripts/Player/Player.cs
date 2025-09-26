@@ -16,6 +16,16 @@ public class Player : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        PlayerInfoSystem.Instance.SetPlayer(this);
+    }
+
+    private void OnDisable()
+    {
+        PlayerInfoSystem.Instance.SetPlayer(null);
+    }
+
     void Update()
     {
         MovePlayer();
