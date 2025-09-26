@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
         Vector3 moveDir = InputManager.GetPlayerInput() * speed * Time.deltaTime;
         transform.position += moveDir;
     }
