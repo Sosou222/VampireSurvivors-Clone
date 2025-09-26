@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed = 6.0f;
 
-    public event Action MovingStarted;
-    public event Action MovingStopped;
+    public event Action<Vector3> MovingStarted;
+    public event Action<Vector3> MovingStopped;
 
 
     private Vector3 lastMoveDir = Vector3.zero;
@@ -30,11 +30,11 @@ public class Player : MonoBehaviour
         {
             if(moveDir == Vector3.zero)
             {
-                MovingStopped?.Invoke();
+                MovingStopped?.Invoke(moveDir.normalized);
             }
             else
             {
-                MovingStarted?.Invoke();
+                MovingStarted?.Invoke(moveDir.normalized);
             }
             lastMoveDir = moveDir;
         }

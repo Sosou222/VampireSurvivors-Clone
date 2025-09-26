@@ -1,0 +1,46 @@
+using System;
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    [SerializeField] private float speed = 4.0f;
+
+    public event Action<Vector3> MovingStarted;
+    public event Action<Vector3> MovingStopped;
+
+    private Vector3 lastMoveDir = Vector3.zero;
+    private Vector3 pointToMoveTo = Vector3.zero;
+
+    void Start()
+    {
+        
+    }
+
+
+    void Update()
+    {
+        MoveTowardPoint();
+    }
+
+    private void MoveTowardPoint()
+    {
+        float step = speed * Time.deltaTime;
+        Vector3 moveDir = transform.position;
+        Vector3 newPos = Vector3.MoveTowards(transform.position, pointToMoveTo, step);
+        transform.position = newPos;
+        moveDir -= newPos;
+
+        if (lastMoveDir != moveDir)
+        {
+            if (moveDir == Vector3.zero)
+            {
+                MovingStopped?.Invoke(moveDir.normalized);
+            }
+            else
+            {
+                MovingStarted?.Invoke(moveDir.normalized);
+            }
+            lastMoveDir = moveDir;
+        }
+    }
+}
