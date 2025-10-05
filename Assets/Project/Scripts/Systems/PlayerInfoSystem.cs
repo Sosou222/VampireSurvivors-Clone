@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerInfoSystem : Singleton<PlayerInfoSystem>
 {
     private Player player = null;
+    private Vector3 lastPlayerPosition = Vector3.zero;
 
     public void SetPlayer(Player player)
     {
@@ -11,13 +12,10 @@ public class PlayerInfoSystem : Singleton<PlayerInfoSystem>
 
     public Vector3 GetPosition()
     {
-        if (player == null)
+        if (player != null)
         {
-            return Vector3.zero;
+            lastPlayerPosition = player.gameObject.transform.position;
         }
-        else
-        {
-            return player.gameObject.transform.position;
-        }
+        return lastPlayerPosition;
     }
 }
