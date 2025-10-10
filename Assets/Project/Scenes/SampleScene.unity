@@ -263,6 +263,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 4
   animator: {fileID: 1721857}
+  targetPoint:
+    rid: 1438688120160387145
+  references:
+    version: 2
+    RefIds:
+    - rid: 1438688120160387145
+      type: {class: TargetPointStatic, ns: , asm: Assembly-CSharp}
+      data: 
 --- !u!1 &320490560
 GameObject:
   m_ObjectHideFlags: 0
