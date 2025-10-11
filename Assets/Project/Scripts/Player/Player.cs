@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
         {
             canAttack = false;
             attackTimer.Start();
-            Debug.Log("HI");
         }
     }
 
