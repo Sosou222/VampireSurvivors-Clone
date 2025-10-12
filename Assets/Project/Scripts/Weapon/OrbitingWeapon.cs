@@ -3,7 +3,7 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class OrbitingWeapon : MonoBehaviour
+public class OrbitingWeapon : Weapon
 {
     [SerializeField] private GameObject orbitingWeaponPrefab;
     [SerializeField] private float rotationSpeed = 80.0f;
@@ -11,7 +11,12 @@ public class OrbitingWeapon : MonoBehaviour
 
     private List<GameObject> orbitingWeapons = new();
 
-    private void Update()
+    private void Start()
+    {
+        AddOrbitingWeapon();
+    }
+
+    protected override void Update()
     {
         UpdateRotation();
         if(Input.GetKeyDown(KeyCode.R))

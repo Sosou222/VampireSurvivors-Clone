@@ -3,11 +3,10 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 
-public class TeleportingWeapon : MonoBehaviour
+public class TeleportingWeapon : Weapon
 {
     [SerializeField] private GameObject teleportingWeaponPrefab;
     [SerializeField] private float range = 1.0f;
-    [SerializeField] private float cooldown = 2.0f;
     [SerializeField] private LayerMask enemyLayerMask;
 
     private Timer cooldownTimer;
@@ -19,13 +18,13 @@ public class TeleportingWeapon : MonoBehaviour
         cooldownTimer.Timeout += OnTimeout;
     }
 
-    private void Update()
+    protected override void Update()
     {
         cooldownTimer.Update(Time.deltaTime);
         Fire();
     }
 
-    public void Fire()
+    public override void Fire()
     {
         if(!canFire)
         {

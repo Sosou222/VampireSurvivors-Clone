@@ -8,6 +8,7 @@ public class WeaponData : ScriptableObject
     public Weapon weaponPrefab;
     [MinValue(1)]
     public int MaxLevel;
+    public bool UsesKeyToFire;
     [RequiredListLength("@this.MaxLevel", "@this.MaxLevel")]
     public List<int> Damage;
     [RequiredListLength("@this.MaxLevel", "@this.MaxLevel")]

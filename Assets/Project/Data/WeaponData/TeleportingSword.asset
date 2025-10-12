@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f285fb3e692cee449395ae64ac69346, type: 3}
-  m_Name: BowWeapon
+  m_Name: TeleportingSword
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponPrefab: {fileID: 7634873197540104369, guid: bb3b0d2457d1f1640a4a05266bbb0809, type: 3}
+  weaponPrefab: {fileID: 4430173624432087725, guid: 4d8db5729927c7f4d92e3fe6581980a4, type: 3}
   MaxLevel: 5
-  UsesKeyToFire: 1
-  Damage: 050000000a0000000f0000001400000019000000
+  UsesKeyToFire: 0
+  Damage: 0a000000140000001e0000002800000032000000
   CoolDown:
-  - 1
-  - 0.9
+  - 2
+  - 1.6
+  - 1.2
   - 0.8
-  - 0.7
-  - 0.6
+  - 0.4
