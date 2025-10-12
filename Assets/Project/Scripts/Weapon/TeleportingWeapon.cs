@@ -72,7 +72,11 @@ public class TeleportingWeapon : Weapon
 
     private void CreateSword(Vector3 position)
     {
-        Instantiate(teleportingWeaponPrefab, position, Quaternion.identity);
+        GameObject sword = Instantiate(teleportingWeaponPrefab, position, Quaternion.identity);
+        if (sword.TryGetComponent(out WeaponDamage weaponDamage))
+        {
+            weaponDamage.SetDamage(Damage);
+        }
     }
 
     private void OnTimeout()

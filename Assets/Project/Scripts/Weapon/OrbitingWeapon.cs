@@ -50,6 +50,13 @@ public class OrbitingWeapon : Weapon
     protected override void OnLevelUp()
     {
         AddOrbitingWeapon();
+        foreach(GameObject ow in orbitingWeapons)
+        {
+            if(ow.TryGetComponent(out WeaponDamage weaponDamage))
+            {
+                weaponDamage.SetDamage(Damage);
+            }
+        }
     }
 
     private void OnDrawGizmos()

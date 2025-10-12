@@ -50,7 +50,11 @@ public class ProjectileWeapon : Weapon
 
     private void SpawnProjectile()
     {
-        Instantiate(projectilePrefab,projectileSpawner.transform.position,transform.rotation);
+        GameObject projectile = Instantiate(projectilePrefab,projectileSpawner.transform.position,transform.rotation);
+        if(projectile.TryGetComponent(out WeaponDamage weaponDamage))
+        {
+            weaponDamage.SetDamage(Damage);
+        }
     }
 
     private void OnTimeout()
