@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecef0d7f26454e4f89535bec57a7e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHolder
-  weaponData: {fileID: 11400000, guid: 0d8490ac6f0f6624d899040dd457ae6f, type: 2}
+  weaponData: {fileID: 11400000, guid: 7bc89b4ea970a984ca6b17b381479ee7, type: 2}
 --- !u!1 &2022112455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d056e2ad6b9eef42bcd05fe05ccb2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  <WeaponHolder>k__BackingField: {fileID: 2002740223}
   speed: 6
 --- !u!212 &2080989626
 SpriteRenderer:

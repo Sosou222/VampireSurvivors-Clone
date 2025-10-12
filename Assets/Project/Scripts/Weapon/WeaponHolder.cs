@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
@@ -25,6 +26,15 @@ public class WeaponHolder : MonoBehaviour
         else
         {
             Debug.LogWarning("Player has aleady that weapon");
+        }
+    }
+
+    public void FireClickWeapons()
+    {
+        List<Weapon> clickWeapons = weapons.Values.Where(w=>w.UsesKeyToFire == true).ToList();
+        foreach(Weapon w in clickWeapons) 
+        {
+            w.Fire();
         }
     }
 }

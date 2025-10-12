@@ -19,10 +19,6 @@ public class OrbitingWeapon : Weapon
     protected override void Update()
     {
         UpdateRotation();
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            AddOrbitingWeapon();
-        }
     }
 
     private void UpdateRotation()
@@ -49,6 +45,11 @@ public class OrbitingWeapon : Weapon
             Vector3 position = new Vector3(x, y, 0f);
             orbitingWeapons[i].transform.position = position;
         }
+    }
+
+    protected override void OnLevelUp()
+    {
+        AddOrbitingWeapon();
     }
 
     private void OnDrawGizmos()

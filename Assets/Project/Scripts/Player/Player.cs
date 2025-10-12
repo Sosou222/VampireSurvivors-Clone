@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [field: SerializeField] public WeaponHolder WeaponHolder { get;private set; }
+
     [SerializeField] private float speed = 6.0f;
 
     public event Action<Vector3> MovingStarted;
     public event Action<Vector3> MovingStopped;
 
-    private Timer attackTimer;
-
     private Vector3 lastMoveDir = Vector3.zero;
-    private bool canAttack = false;
-    void Start()
-    {
-        attackTimer = new Timer(1.0f,true,true);
-        attackTimer.Timeout += OnAttackTimeout;
-    }
 
     private void OnEnable()
     {
@@ -32,7 +26,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        attackTimer.Update(Time.deltaTime);
         MovePlayer();
         TryAttack();
     }
@@ -58,15 +51,9 @@ public class Player : MonoBehaviour
 
     private void TryAttack()
     {
-        if(InputManager.IsMouseButtonDown() && canAttack)
+        if(InputManager.IsMouseButtonDown())
         {
-            canAttack = false;
-            attackTimer.Start();
+            WeaponHolder.FireClickWeapons();
         }
-    }
-
-    private void OnAttackTimeout()
-    {
-        canAttack = true;
     }
 }
