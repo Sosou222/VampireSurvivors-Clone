@@ -3,14 +3,21 @@ using UnityEngine;
 public class ProjectileWeapon : MonoBehaviour
 {
     [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private SpriteRenderer readyToFireSprite;
     [SerializeField] private GameObject projectileSpawner;
+    [SerializeField] private float cooldown = 0.8f;
+
+    private Timer cooldownTimer;
+    private bool canFire = true;
     void Start()
     {
-        
+        cooldownTimer = new Timer(cooldown);
+        cooldownTimer.Timeout += OnTimeout;
     }
 
     void Update()
     {
+        cooldownTimer.Update(Time.deltaTime);
         UpdateRotation();
         if(InputManager.IsMouseButtonDownThisFrame())
         {
@@ -30,11 +37,26 @@ public class ProjectileWeapon : MonoBehaviour
 
     public void Fire()
     {
+        if(!canFire)
+        {
+            return;
+        }
+
         SpawnProjectile();
+
+        canFire = false;
+        readyToFireSprite.enabled = false;
+        cooldownTimer.Start();
     }
 
     private void SpawnProjectile()
     {
         Projectile projectile = Instantiate(projectilePrefab,projectileSpawner.transform.position,transform.rotation);
+    }
+
+    private void OnTimeout()
+    {
+        canFire = true;
+        readyToFireSprite.enabled = true;
     }
 }
