@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class ProjectileWeapon : MonoBehaviour
+public class ProjectileWeapon : Weapon
 {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private SpriteRenderer readyToFireSprite;
     [SerializeField] private GameObject projectileSpawner;
-    [SerializeField] private float cooldown = 0.8f;
 
     private Timer cooldownTimer;
     private bool canFire = true;
@@ -15,7 +14,7 @@ public class ProjectileWeapon : MonoBehaviour
         cooldownTimer.Timeout += OnTimeout;
     }
 
-    void Update()
+    protected override void Update()
     {
         cooldownTimer.Update(Time.deltaTime);
         UpdateRotation();
@@ -35,7 +34,7 @@ public class ProjectileWeapon : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    public void Fire()
+    public override void Fire()
     {
         if(!canFire)
         {

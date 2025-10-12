@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f285fb3e692cee449395ae64ac69346, type: 3}
+  m_Name: BowWeapon
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponPrefab: {fileID: 7634873197540104369, guid: bb3b0d2457d1f1640a4a05266bbb0809, type: 3}
+  MaxLevel: 5
+  Damage: 050000000a0000000f0000001400000019000000
+  CoolDown:
+  - 1
+  - 0.9
+  - 0.8
+  - 0.7
+  - 0.6
