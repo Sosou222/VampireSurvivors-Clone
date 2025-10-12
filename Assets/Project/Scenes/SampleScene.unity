@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e5f922c0c29b649ba99ea38e657706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileWeapon
-  projectilePrefab: {fileID: 3139764668435945606, guid: 5f5c99764be03c5438feac37b2a37622, type: 3}
+  projectilePrefab: {fileID: 5796207736166169909, guid: 5f5c99764be03c5438feac37b2a37622, type: 3}
   readyToFireSprite: {fileID: 1554402271}
   projectileSpawner: {fileID: 1637460479}
   cooldown: 0.8
