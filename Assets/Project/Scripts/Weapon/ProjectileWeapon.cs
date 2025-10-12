@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ProjectileWeapon : MonoBehaviour
 {
-    [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private SpriteRenderer readyToFireSprite;
     [SerializeField] private GameObject projectileSpawner;
     [SerializeField] private float cooldown = 0.8f;
@@ -51,7 +51,7 @@ public class ProjectileWeapon : MonoBehaviour
 
     private void SpawnProjectile()
     {
-        Projectile projectile = Instantiate(projectilePrefab,projectileSpawner.transform.position,transform.rotation);
+        Instantiate(projectilePrefab,projectileSpawner.transform.position,transform.rotation);
     }
 
     private void OnTimeout()
