@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    [SerializeField] private HealthStatsData healthStatsData;
+    [SerializeField] private EnemyStatsData enemyStatsData;
     public HealthComponent Health { get; private set; } = new();
-    public float BaseSpeed => healthStatsData.BaseSpeed;
+    public float BaseSpeed => enemyStatsData.BaseSpeed;
     private float speedMultiplayer = 1.0f;
     public float SpeedMultiplier { get { return GetSpeedMult(); } }
     private void Start()
@@ -14,7 +14,7 @@ public class EnemyStats : MonoBehaviour
 
     public void Setup()
     {
-        Health.Setup(healthStatsData.MaxHp);
+        Health.Setup(enemyStatsData.MaxHp);
     }
 
     public void TakeDamage(int damage) => Health.TakeDamage(damage);
