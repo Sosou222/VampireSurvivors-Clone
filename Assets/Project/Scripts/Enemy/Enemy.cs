@@ -37,9 +37,14 @@ public class Enemy : MonoBehaviour
         MoveTowardPoint();
     }
 
-    public void TakeDamage(int damage) => EnemyStats.TakeDamage(damage);
+    public void TakeDamage(int damage)
+    {
+        EnemyStats.TakeDamage(damage);
+        DamagePopUpCreator.Instance.CreatePopUp(transform.position, damage);
+    }
 
-    private void OnDie()
+
+        private void OnDie()
     {
         Destroy(gameObject);
     }
