@@ -23,6 +23,7 @@ public class WeaponDamage : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
+            enemy.TakeDamage(damage);
             if(limitedPierce == false)
             {
                 return;
