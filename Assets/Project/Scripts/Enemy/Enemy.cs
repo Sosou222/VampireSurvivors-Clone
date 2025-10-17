@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyAnimator animator;
     [SerializeReference] private ITargetPoint targetPoint;
 
+    [field:SerializeField] public EnemyStats EnemyStats { get; private set; }
+    [field:SerializeField] public EnemyView EnemyView { get; private set; }
+
     public event Action<Vector3> MovingStarted;
     public event Action<Vector3> MovingStopped;
 
@@ -21,6 +24,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         targetPoint.Init();
+        EnemyStats.Setup();
+        EnemyView.Setup(EnemyStats);
     }
 
 

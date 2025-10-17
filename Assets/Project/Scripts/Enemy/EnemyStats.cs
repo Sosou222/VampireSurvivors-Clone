@@ -7,10 +7,6 @@ public class EnemyStats : MonoBehaviour
     public float BaseSpeed => enemyStatsData.BaseSpeed;
     private float speedMultiplayer = 1.0f;
     public float SpeedMultiplier { get { return GetSpeedMult(); } }
-    private void Start()
-    {
-        Setup();
-    }
 
     public void Setup()
     {
