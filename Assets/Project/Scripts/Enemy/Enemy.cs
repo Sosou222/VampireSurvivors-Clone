@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
         targetPoint.Init();
         EnemyStats.Setup();
         EnemyView.Setup(EnemyStats);
+
+        EnemyStats.Health.HealthZeroReached += OnDie;
     }
 
 
@@ -36,6 +38,11 @@ public class Enemy : MonoBehaviour
     }
 
     public void TakeDamage(int damage) => EnemyStats.TakeDamage(damage);
+
+    private void OnDie()
+    {
+        Destroy(gameObject);
+    }
 
     private void UpdateTargetPoint()
     {
