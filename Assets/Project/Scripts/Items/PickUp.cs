@@ -7,7 +7,7 @@ public class PickUp : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent(out Player player))
         {
-            pickUpBehaviour.OnPickUp();
+            pickUpBehaviour.OnPickUp(player);
             Destroy(gameObject);
         }
     }
