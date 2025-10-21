@@ -4,8 +4,10 @@ using UnityEngine.UI;
 public class FloatingHealthBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    public void Setup(HealthComponent healthComponent)
+    private bool disapearOnFullHP = false;
+    public void Setup(HealthComponent healthComponent,bool disapearOnFullHP = false)
     {
+        this.disapearOnFullHP = disapearOnFullHP;
         OnInfoChanged(healthComponent);
 
         healthComponent.InfoChanged += OnInfoChanged;
@@ -13,6 +15,18 @@ public class FloatingHealthBar : MonoBehaviour
 
     private void OnInfoChanged(HealthComponent healthComponent)
     {
-        slider.value = healthComponent.Normalize();
+        float hp = healthComponent.Normalize();
+        slider.value = hp;
+        if(disapearOnFullHP)
+        {
+            if(hp == 1.0f)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+            }
+        }
     }
 }

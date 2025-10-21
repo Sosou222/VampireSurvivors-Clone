@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [field: SerializeField] public WeaponHolder WeaponHolder { get;private set; }
+    [field: SerializeField] public PlayerStats PlayerStats { get; private set; }
+    [field: SerializeField] public PlayerView PlayerView { get; private set; }
 
     [SerializeField] private float speed = 6.0f;
 
@@ -12,6 +14,12 @@ public class Player : MonoBehaviour
     public event Action<Vector3> MovingStopped;
 
     private Vector3 lastMoveDir = Vector3.zero;
+
+    private void Start()
+    {
+        PlayerStats.Setup(50);
+        PlayerView.Setup(PlayerStats);
+    }
 
     private void OnEnable()
     {

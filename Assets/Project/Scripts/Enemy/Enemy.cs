@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-        private void OnDie()
+    private void OnDie()
     {
         Destroy(gameObject);
     }
