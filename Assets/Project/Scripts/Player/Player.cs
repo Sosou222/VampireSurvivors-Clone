@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
 
     private void OnDie()
     {
+        //Disable controls
+        //Wait for animation to finish before destroy
         Destroy(gameObject);
     }
 
