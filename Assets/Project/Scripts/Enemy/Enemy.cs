@@ -46,7 +46,8 @@ public class Enemy : MonoBehaviour
 
     private void OnDie()
     {
-        Destroy(gameObject);
+        animator.TriggerDeath();
+        animator.DeathAnimationFinished += () => Destroy(gameObject);
     }
 
     private void UpdateTargetPoint()

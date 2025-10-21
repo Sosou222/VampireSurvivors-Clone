@@ -34,7 +34,7 @@ public class EnemyAnimator : MonoBehaviour
         }
     }
 
-    private void TriggerDeath()
+    public void TriggerDeath()
     {
         animator.SetTrigger("TrDeath");
     }
