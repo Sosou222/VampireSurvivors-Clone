@@ -8,4 +8,6 @@ public class PlayerStats : MonoBehaviour
     {
         Health.Setup(maxHp);
     }
+
+    public void TakeDamage(int damage) => Health.TakeDamage(damage);
 }

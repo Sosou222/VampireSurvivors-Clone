@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     {
         PlayerStats.Setup(50);
         PlayerView.Setup(PlayerStats);
+
+        PlayerStats.Health.HealthZeroReached += OnDie;
     }
 
     private void OnEnable()
@@ -36,6 +38,16 @@ public class Player : MonoBehaviour
     {
         MovePlayer();
         TryAttack();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        PlayerStats.TakeDamage(damage);
+    }
+
+    private void OnDie()
+    {
+        Destroy(gameObject);
     }
 
     private void MovePlayer()
