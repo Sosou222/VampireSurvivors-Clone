@@ -16,11 +16,6 @@ public class Enemy : MonoBehaviour
     private Vector3 lastMoveDir = Vector3.zero;
     private Vector3 pointToMoveTo = Vector3.zero;
 
-    private void Awake()
-    {
-        animator.DeathAnimationFinished += Die;
-    }
-
     private void Start()
     {
         targetPoint.Init();
@@ -47,6 +42,7 @@ public class Enemy : MonoBehaviour
     private void OnDie()
     {
         animator.TriggerDeath();
+        DropsSystem.Instance.Spawn(transform.position, DropItemType.ExpierienceGemSmall);
         animator.DeathAnimationFinished += () => Destroy(gameObject);
     }
 
@@ -75,10 +71,5 @@ public class Enemy : MonoBehaviour
             }
             lastMoveDir = moveDir;
         }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }
