@@ -3,24 +3,38 @@ using Sirenix.Serialization;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropsCreator : SerializedSingleton<DropsCreator>
+[System.Serializable]
+public class DropItem
 {
-    [OdinSerialize] private Dictionary<DropItemType, GameObject> dropsPrefabs = new();
-
-    public GameObject Create(DropItemType type)
-    {
-        if(dropsPrefabs.ContainsKey(type))
-        {
-            GameObject drop = Instantiate(dropsPrefabs[type]);
-            return drop;
-        }
-
-        Debug.LogWarning(type.ToString() + " has no prfab assigned");
-        return null;
-    }
+    public string Name;
+    public GameObject Prefab;
+    public float DropRate;
 }
 
-public enum DropItemType
+public class DropsCreator : Singleton<DropsCreator>
 {
-    ExpierienceGemSmall
+    [SerializeField] private List<DropItem> dropItems = new();
+    public bool TryCreate(out GameObject dropItem)
+    {
+        float rand = Random.Range(0.0f, 100.0f);
+        List<DropItem> possibleDrops = new List<DropItem>();
+
+        foreach(DropItem drop in dropItems)
+        {
+            if(rand <= drop.DropRate)
+            {
+                possibleDrops.Add(drop);
+            }
+        }
+
+        if(possibleDrops.Count > 0)
+        {
+            DropItem drop = possibleDrops[Random.Range(0, possibleDrops.Count - 1)];
+            dropItem = Instantiate(drop.Prefab);
+            return true;
+        }
+
+        dropItem = null;
+        return false;
+    }
 }

@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     private void OnDie()
     {
         animator.TriggerDeath();
-        DropsSystem.Instance.Spawn(transform.position, DropItemType.ExpierienceGemSmall);
+        DropsSystem.Instance.Spawn(transform.position);
         animator.DeathAnimationFinished += () => Destroy(gameObject);
     }
 

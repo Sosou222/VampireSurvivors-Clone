@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DropsSystem : Singleton<DropsSystem>
 {
-    public void Spawn(Vector3 position,DropItemType type)
+    public void Spawn(Vector3 position)
     {
-        GameObject drop = DropsCreator.Instance.Create(type);
-        drop.transform.position = position;
+        if(DropsCreator.Instance.TryCreate(out GameObject drop))
+        {
+            drop.transform.position = position;
+        }
     }
 }

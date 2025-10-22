@@ -688,54 +688,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6345705ae6eb54c88b243d8b6fcc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropsCreator
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 6285629413846776749, guid: 76abeeb1951710f4ab5c7a6f22ca7287, type: 3}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: dropsPrefabs
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[DropItemType, Assembly-CSharp],[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[DropItemType, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+  dropItems:
+  - Name: SmallExpCrystal
+    Prefab: {fileID: 6285629413846776749, guid: 76abeeb1951710f4ab5c7a6f22ca7287, type: 3}
+    DropRate: 75
 --- !u!1 &456974201
 GameObject:
   m_ObjectHideFlags: 0
