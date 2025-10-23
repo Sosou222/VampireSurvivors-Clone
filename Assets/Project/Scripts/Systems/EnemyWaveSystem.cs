@@ -7,11 +7,6 @@ public class EnemyWaveSystem : MonoBehaviour
     {
         public int AmountToSpawn;
         public GameObject EnemyPrefab;
-
-        public override string ToString()
-        {
-            return "EC:" + AmountToSpawn + " EnemyPefab:" + EnemyPrefab.name;
-        }
     }
 
     [SerializeField] private List<WaveData> waves;
@@ -65,7 +60,6 @@ public class EnemyWaveSystem : MonoBehaviour
             if(group.AmountToSpawn > 0)
             {
                 possibleEnemies.Add(group);
-                Debug.Log(group);
             }
         }
 
@@ -93,8 +87,53 @@ public class EnemyWaveSystem : MonoBehaviour
         downLeft -= new Vector3(extraPadding, extraPadding, 0);
         upRight += new Vector3(extraPadding, extraPadding, 0);
 
-        //TODO
+        Vector3 point = GetPointOutsideRect(downLeft, upRight,2.0f);
 
-        return new Vector3(Random.Range(downLeft.x,upRight.x), Random.Range(downLeft.y,upRight.y),1.0f);
+        return point;
+    }
+
+
+    private Vector3 GetPointOutsideRect(Vector3 downLeft,Vector3 upRight,float range)
+    {
+        Vector3 point = Vector3.zero;
+
+        int rand = Random.Range(0, 7);
+
+        switch (rand)
+        {
+            case 0://Left
+                point = new Vector3(Random.Range(downLeft.x - range, downLeft.x), Random.Range(downLeft.y,upRight.y), 0);
+                break;
+
+            case 1://Right
+                point = new Vector3(Random.Range(upRight.x, upRight.x + range), Random.Range(downLeft.y, upRight.y), 0);
+                break;
+
+            case 2://Up
+                point = new Vector3(Random.Range(downLeft.x, upRight.x), Random.Range(upRight.y, upRight.y + range), 0);
+                break;
+
+            case 3://Down
+                point = new Vector3(Random.Range(downLeft.x, upRight.x), Random.Range(downLeft.y - range, downLeft.y), 0);
+                break;
+
+            case 4://UpLeft
+                point = new Vector3(Random.Range(downLeft.x - range, downLeft.x), Random.Range(upRight.y, upRight.y + range), 0);
+                break;
+
+            case 5://DownLeft
+                point = new Vector3(Random.Range(downLeft.x - range, downLeft.x), Random.Range(downLeft.y - range, downLeft.y), 0);
+                break;
+
+            case 6://UpRight
+                point = new Vector3(Random.Range(upRight.x, upRight.x + range), Random.Range(upRight.y, upRight.y + range), 0);
+                break;
+
+            case 7://DownRight
+                point = new Vector3(Random.Range(upRight.x, upRight.x + range), Random.Range(downLeft.y - range, downLeft.y), 0);
+                break;
+        }
+
+        return point;
     }
 }
