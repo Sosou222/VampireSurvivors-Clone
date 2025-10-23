@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318d2c16460770248b49ace1c9af74dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerPickUpMagnet
-  speed: 5
+  speed: 7
 --- !u!58 &1962837116
 CircleCollider2D:
   m_ObjectHideFlags: 0
