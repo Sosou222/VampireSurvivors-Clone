@@ -271,6 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38786946e26fe124188c353b7432b4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpHolderUI
+  text: {fileID: 2080918278}
+  slider: {fileID: 294297650}
 --- !u!1 &294297648
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40198404efad34e4aa2129258a23a306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpierienceSystem
+  Level: 1
+  MaxLevel: 20
+  CurrentExp: 0
+  ExpToNextLv: 100
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

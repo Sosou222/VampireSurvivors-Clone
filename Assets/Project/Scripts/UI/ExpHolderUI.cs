@@ -1,16 +1,24 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExpHolderUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Slider slider;
+
+    private void Start()
     {
-        
+        ExpierienceSystem.Instance.ExpChanged += OnExpChange;
+        OnExpChange();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnExpChange()
     {
-        
+        int left = ExpierienceSystem.Instance.CurrentExp;
+        int right = ExpierienceSystem.Instance.ExpToNextLv;
+
+        slider.value = ExpierienceSystem.Instance.Normalize();
+        text.text = left +"/" + right;
     }
 }

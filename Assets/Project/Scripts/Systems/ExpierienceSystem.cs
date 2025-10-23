@@ -3,40 +3,43 @@ using UnityEngine;
 
 public class ExpierienceSystem : Singleton<ExpierienceSystem>
 {
-    private int level = 1;
-    private int maxLevel = 20;
-    private int currentExp = 0;
-    private int expToNextLv = 100;
+    public int Level = 1;
+    public int MaxLevel = 20;
+    public int CurrentExp = 0;
+    public int ExpToNextLv = 100;
 
     public event Action<int> LeveledUp;
+    public event Action ExpChanged;
+
     public void Setup()
     {
-        level = 1;
-        currentExp = 0;
+        Level = 1;
+        CurrentExp = 0;
     }
 
     public void AddExp(int exp)
     {
-        if(level >= maxLevel)
+        if(Level >= MaxLevel)
         {
             return;
         }
-        currentExp += exp;
-        if(currentExp >= expToNextLv)
+        CurrentExp += exp;
+        ExpChanged?.Invoke();
+        if (CurrentExp >= ExpToNextLv)
         {
-            currentExp -= expToNextLv;
+            CurrentExp -= ExpToNextLv;
             LevelUp();
         }
     }
 
     public float Normalize()
     {
-        return (float)currentExp / (float) expToNextLv;
+        return (float)CurrentExp / (float) ExpToNextLv;
     }
 
     private void LevelUp()
     {
-        level++;
-        LeveledUp?.Invoke(level);
+        Level++;
+        LeveledUp?.Invoke(Level);
     }
 }
