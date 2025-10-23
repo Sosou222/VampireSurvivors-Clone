@@ -244,14 +244,14 @@ MonoBehaviour:
   speed: 4
   animator: {fileID: 8170979026507094027}
   targetPoint:
-    rid: 1438688120160387145
+    rid: 1438688409277169747
   <EnemyStats>k__BackingField: {fileID: 5889303459689894001}
   <EnemyView>k__BackingField: {fileID: 3249049780348390588}
   references:
     version: 2
     RefIds:
-    - rid: 1438688120160387145
-      type: {class: TargetPointStatic, ns: , asm: Assembly-CSharp}
+    - rid: 1438688409277169747
+      type: {class: TargetPointPlayer, ns: , asm: Assembly-CSharp}
       data: 
 --- !u!114 &8170979026507094027
 MonoBehaviour:
