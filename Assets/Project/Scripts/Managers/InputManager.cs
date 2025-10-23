@@ -10,6 +10,7 @@ public class InputManager : PersistentSingleton<InputManager>
         base.Awake();
         playerInput = new();
         playerInput.Player.Enable();
+        playerInput.UI.Disable();
     }
 
     protected override void OnApplicationQuit()
@@ -23,10 +24,12 @@ public class InputManager : PersistentSingleton<InputManager>
         if(isEnabled)
         {
             Instance.playerInput.Player.Enable();
+            Instance.playerInput.UI.Disable();
         }
         else
         {
             Instance.playerInput.Player.Disable();
+            Instance.playerInput.UI.Enable();
         }
     }
 
@@ -59,5 +62,18 @@ public class InputManager : PersistentSingleton<InputManager>
     public static Vector2 GetPlayerMove()
     {
         return Instance.playerInput.Player.Move.ReadValue<Vector2>();
+    }
+
+    public static bool GetPauseToggle()
+    {
+        if(Instance.playerInput.Player.enabled)
+        {
+            return Instance.playerInput.Player.MenuOpen.WasPressedThisFrame();
+        }
+        if(Instance.playerInput.UI.enabled)
+        {
+            return Instance.playerInput.UI.MenuClose.WasPressedThisFrame();
+        }
+        return false;
     }
 }
