@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class ExpierienceSystem : Singleton<ExpierienceSystem>
 {
-    public int Level = 1;
-    public int MaxLevel = 20;
-    public int CurrentExp = 0;
-    public int ExpToNextLv = 100;
+    public int Level { get; private set; } = 1;
+    public int MaxLevel { get; private set; } = 20;
+    public int CurrentExp { get; private set; } = 0;
+    public int ExpToNextLv { get; private set; } = 100;
 
     public event Action<int> LeveledUp;
     public event Action ExpChanged;
