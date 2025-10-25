@@ -76,4 +76,9 @@ public class InputManager : PersistentSingleton<InputManager>
         }
         return false;
     }
+
+    public static Vector2 GetNavigationVector()
+    {
+        return Instance.playerInput.UI.Navigate.ReadValue<Vector2>();
+    }
 }
