@@ -6,21 +6,6 @@ public class PauseSystem : Singleton<PauseSystem>
     public bool IsPaused { get; private set; } = false;
     public event Action<bool> PauseChanged;
 
-    private void Update()
-    {
-        if(InputManager.GetPauseToggle())
-        {
-            if(IsPaused)
-            {
-                UnPause();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }
-
     public void Pause()
     {
         IsPaused = true;

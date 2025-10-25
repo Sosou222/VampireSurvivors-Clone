@@ -6,6 +6,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ExpHolderUI expHolderUI;
     [SerializeField] private PauseMenuUI pauseMenuUI;
 
+    private void Update()
+    {
+        if (InputManager.GetPauseToggle())
+        {
+            if (PauseSystem.Instance.IsPaused)
+            {
+                PauseSystem.Instance.UnPause();
+            }
+            else
+            {
+                PauseSystem.Instance.Pause();
+            }
+        }
+    }
+
     private void Start()
     {
         PauseSystem.Instance.PauseChanged += OnPauseChange;
