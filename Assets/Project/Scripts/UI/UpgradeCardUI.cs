@@ -74,7 +74,7 @@ public class UpgradeCardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
             endScale = startScale;
         }
 
-        Sequence tween = DOTween.Sequence();
+        Sequence tween = DOTween.Sequence().SetUpdate(true);
         tween.Append(transform.DOMove(endPos,moveDuration));
         tween.Join(transform.DOScale(endScale,moveDuration));
 
