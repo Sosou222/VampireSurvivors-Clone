@@ -43,7 +43,7 @@ public class OrbitingWeapon : Weapon
             float y = Mathf.Sin(angle) * radius;
 
             Vector3 position = new Vector3(x, y, 0f);
-            orbitingWeapons[i].transform.position = position;
+            orbitingWeapons[i].transform.position = position + transform.position;
         }
     }
 
