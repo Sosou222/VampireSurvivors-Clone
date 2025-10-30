@@ -18,4 +18,15 @@ public class PlayerInfoSystem : Singleton<PlayerInfoSystem>
         }
         return lastPlayerPosition;
     }
+
+    public bool TryGetPlayer(out Player Player)
+    {
+        if (player != null)
+        {
+            Player = player;
+            return true;
+        }
+        Player = null; 
+        return false;
+    }
 }

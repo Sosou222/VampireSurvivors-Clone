@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +33,26 @@ public class CardSelectionManagerUI : MonoBehaviour
         if (InputManager.GetNavigationVector().x < 0)
         {
             HandleNextCardSelection(-1);
+        }
+    }
+
+    public void ShowUpgrades(List<UpgradeCardInfo> infoList,Action onStopShowingUpgrades)
+    {
+        for (int i=0;i<Cards.Count;i++)
+        {
+            if (!(i + 1 > infoList.Count))
+            {
+                Cards[i].gameObject.SetActive(true);
+                Cards[i].SetInfo(infoList[i], onStopShowingUpgrades);
+            }
+        }
+    }
+
+    public void Hide()
+    {
+        foreach(var card in Cards)
+        {
+            card.gameObject.SetActive(false);
         }
     }
 

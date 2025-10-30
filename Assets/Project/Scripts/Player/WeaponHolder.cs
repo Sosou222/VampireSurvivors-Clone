@@ -29,6 +29,28 @@ public class WeaponHolder : MonoBehaviour
         }
     }
 
+    public List<WeaponData> GetWeaponData()
+    {
+        return weapons.Keys.ToList();
+    }
+
+    public void LevelUpWeapon(WeaponData data)
+    {
+        if(weapons.ContainsKey(data))
+        {
+            weapons[data].LevelUp();
+        }
+    }
+
+    public int GetWeaponLevel(WeaponData data)
+    {
+        if (weapons.ContainsKey(data))
+        {
+            return weapons[data].Level;
+        }
+        return -1;
+    }
+
     public void FireClickWeapons()
     {
         List<Weapon> clickWeapons = weapons.Values.Where(w=>w.UsesKeyToFire == true).ToList();

@@ -240,7 +240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &115478263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardUI
   title: {fileID: 1306286032}
   description: {fileID: 1865393367}
+  button: {fileID: 115478265}
 --- !u!114 &115478265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +500,50 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &303355305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303355306}
+  - component: {fileID: 303355307}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &303355306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303355305}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1006.4324, y: 701.7855, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 696438253}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &303355307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303355305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54eff1ddc65895547b4064fdf4ac73a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &320490560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1886341802}
+  - {fileID: 303355306}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &709295255
@@ -2402,6 +2448,7 @@ MonoBehaviour:
   timerUI: {fileID: 1432960676}
   expHolderUI: {fileID: 225997179}
   pauseMenuUI: {fileID: 875870723}
+  cardSelectionManagerUI: {fileID: 2120616556}
 --- !u!1 &1306286030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,7 +2916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471915951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2905,6 +2952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardUI
   title: {fileID: 2021064011}
   description: {fileID: 1793979855}
+  button: {fileID: 1471915953}
 --- !u!114 &1471915953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3470,7 +3518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1942525729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3506,6 +3554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardUI
   title: {fileID: 490459117}
   description: {fileID: 993502657}
+  button: {fileID: 1942525731}
 --- !u!114 &1942525731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4329,7 +4378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2120616555
 RectTransform:
   m_ObjectHideFlags: 0

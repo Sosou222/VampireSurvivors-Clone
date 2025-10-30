@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Assets/Weapon",fileName = "Weapon")]
 public class WeaponData : ScriptableObject
 {
+    public string WeaponName;
+    public string WeaponAddText;
+    public string WeaponLevelUpText;
     public Weapon weaponPrefab;
     [MinValue(1)]
     public int MaxLevel;

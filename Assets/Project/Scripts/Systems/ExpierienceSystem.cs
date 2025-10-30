@@ -24,12 +24,13 @@ public class ExpierienceSystem : Singleton<ExpierienceSystem>
             return;
         }
         CurrentExp += exp;
-        ExpChanged?.Invoke();
         if (CurrentExp >= ExpToNextLv)
         {
             CurrentExp -= ExpToNextLv;
             LevelUp();
         }
+
+        ExpChanged?.Invoke();
     }
 
     public float Normalize()

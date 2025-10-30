@@ -1,12 +1,27 @@
 using DG.Tweening;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class UpgradeCardInfo
+{
+    public string TitleText;
+    public string DescriptionText;
+    public Action OnClickAction;
+
+    public override string ToString()
+    {
+        return TitleText + ":" + DescriptionText;
+    }
+}
 
 public class UpgradeCardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,ISelectHandler,IDeselectHandler
 {
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI description;
+    [SerializeField] private Button button;
 
     private Vector3 startPos;
     private Vector3 startScale;
@@ -23,10 +38,18 @@ public class UpgradeCardUI : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
         this.cardSelectionManager = cardSelectionManager;
     }
 
-    public void SetText(string titleText,string descriptionText)
+    public void SetInfo(UpgradeCardInfo info, Action onStopShowingUpgrades)
     {
-        title.text = titleText;
-        description.text = descriptionText;
+        title.text = info.TitleText;
+        description.text = info.DescriptionText;
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() => 
+        {
+            info.OnClickAction();
+            PauseSystem.Instance.UnPause();
+            onStopShowingUpgrades();
+            cardSelectionManager.Hide();
+        });
     }
 
     private void MoveCard(bool focusOn)

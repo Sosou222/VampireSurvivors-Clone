@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f285fb3e692cee449395ae64ac69346, type: 3}
   m_Name: BowWeapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  WeaponName: Bow
+  WeaponAddText: Get a bow that shoots arrows at your enemies.
+  WeaponLevelUpText: Lvl up string
   weaponPrefab: {fileID: 7634873197540104369, guid: bb3b0d2457d1f1640a4a05266bbb0809, type: 3}
   MaxLevel: 5
   UsesKeyToFire: 1
