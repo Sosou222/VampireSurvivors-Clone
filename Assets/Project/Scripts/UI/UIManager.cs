@@ -12,7 +12,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Update()
     {
-        if(!isShowingUpgrades)
+        if(isShowingUpgrades)
         {
             return;
         }
