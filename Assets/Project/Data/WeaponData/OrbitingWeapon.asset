@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   WeaponName: Orbiting Shurikens
   WeaponAddText: Get shurikens that orbits near you dealing damage to enemeis.
-  WeaponLevelUpText: Lvl up string
+  WeaponLevelUpText: Gain more orbiting shurikens and increase damage.
   weaponPrefab: {fileID: 3366809610167227148, guid: 5bb1ff175fe98834e9c26b3457c854e3, type: 3}
   MaxLevel: 7
   UsesKeyToFire: 0

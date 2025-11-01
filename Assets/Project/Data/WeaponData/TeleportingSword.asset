@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   WeaponName: Teleporting Sword
   WeaponAddText: Get a sword that appers near enemies and slashes them.
-  WeaponLevelUpText: Lvl up string
+  WeaponLevelUpText: Increse how often sword strike and its damage.
   weaponPrefab: {fileID: 4430173624432087725, guid: 4d8db5729927c7f4d92e3fe6581980a4, type: 3}
   MaxLevel: 5
   UsesKeyToFire: 0
