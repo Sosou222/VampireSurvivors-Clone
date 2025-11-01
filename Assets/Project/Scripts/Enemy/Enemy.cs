@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     {
         animator.TriggerDeath();
         DropsSystem.Instance.Spawn(transform.position);
+        EnemyView.gameObject.SetActive(false);
         animator.DeathAnimationFinished += () => Destroy(gameObject);
     }
 
