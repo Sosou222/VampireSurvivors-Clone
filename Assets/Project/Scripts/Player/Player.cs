@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
         PlayerStats.TakeDamage(damage);
     }
 
+    public void Heal(int heal)
+    {
+        PlayerStats.Heal(heal);
+    }
+
     private void OnDie()
     {
         //Disable controls

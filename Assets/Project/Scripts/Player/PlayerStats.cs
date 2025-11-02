@@ -25,4 +25,6 @@ public class PlayerStats : MonoBehaviour
         Health.TakeDamage(damage);
         invTimer.Start();
     }
+
+    public void Heal(int heal) => Health.Heal(heal);
 }

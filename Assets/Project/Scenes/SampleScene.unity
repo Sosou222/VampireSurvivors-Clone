@@ -666,8 +666,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropsCreator
   dropItems:
   - Name: SmallExpCrystal
-    Prefab: {fileID: 6285629413846776749, guid: 76abeeb1951710f4ab5c7a6f22ca7287, type: 3}
+    Prefab: {fileID: 6285629413846776749, guid: 93c1c2bbb9f98dc4993d544029b2a099, type: 3}
     DropRate: 75
+  - Name: BigExpCrystal
+    Prefab: {fileID: 6285629413846776749, guid: 76abeeb1951710f4ab5c7a6f22ca7287, type: 3}
+    DropRate: 25
+  - Name: SnallHealingPotion
+    Prefab: {fileID: 6285629413846776749, guid: e0a8e15c2848d2646a89c1c6ad90f4bb, type: 3}
+    DropRate: 50
+  - Name: MediumHealingPotion
+    Prefab: {fileID: 6285629413846776749, guid: 5a5e60cac2cfc8f438d61d39b1f0ac62, type: 3}
+    DropRate: 25
+  - Name: BigHealingPotion
+    Prefab: {fileID: 6285629413846776749, guid: 9264b683a9b23d84098613b574889f2c, type: 3}
+    DropRate: 5
 --- !u!1 &456974201
 GameObject:
   m_ObjectHideFlags: 0
