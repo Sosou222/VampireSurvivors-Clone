@@ -7,11 +7,25 @@ public class SpeedItem : PassiveItemBase
 
     public override void OnAdd(PlayerStats player)
     {
-        player.AddSpeedMult(speedMult);
+        if(!IsDebuf)
+        {
+            player.AddSpeedMult(speedMult);
+        }
+        else
+        {
+            player.RemoveSpeedMult(speedMult);
+        }
     }
 
     public override void OnRemove(PlayerStats player)
     {
-        player.RemoveSpeedMult(speedMult);
+        if (!IsDebuf)
+        {
+            player.RemoveSpeedMult(speedMult);
+        }
+        else
+        {
+            player.AddSpeedMult(speedMult);
+        }
     }
 }

@@ -2190,6 +2190,7 @@ MonoBehaviour:
   items:
   - rid: 5620196626024104045
   - rid: 5620196626024104048
+  - rid: 5620196626024104077
   references:
     version: 2
     RefIds:
@@ -2207,6 +2208,13 @@ MonoBehaviour:
         <Description>k__BackingField: Removes speed from player.
         <IsDebuf>k__BackingField: 1
         speedMult: 0.5
+    - rid: 5620196626024104077
+      type: {class: MaxHealthItem, ns: , asm: Assembly-CSharp}
+      data:
+        <Name>k__BackingField: More Health.
+        <Description>k__BackingField: Get more max health for better survival.
+        <IsDebuf>k__BackingField: 0
+        maxHealth: 15
 --- !u!1 &1090057692
 GameObject:
   m_ObjectHideFlags: 0

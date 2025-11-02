@@ -62,6 +62,16 @@ public class PlayerStats : MonoBehaviour
         speedMult -= mult;
     }
 
+    public void AddMaxHealth(int maxHp)
+    {
+        Health.SetMaxHP(Health.MaxHealth + maxHp);
+    }
+
+    public void RemoveMaxHealth(int maxHp)
+    {
+        Health.SetMaxHP(Health.MaxHealth - maxHp);
+    }
+
     private float GetSpeedMult()
     {
         float minMult = 0.25f;
