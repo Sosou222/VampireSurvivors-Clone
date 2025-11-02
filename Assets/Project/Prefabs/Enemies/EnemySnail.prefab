@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f64fba98daed54a8381c1de02c5354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  damage: 2
+  damage: 3
 --- !u!1 &9013579059844826416
 GameObject:
   m_ObjectHideFlags: 0
