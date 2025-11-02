@@ -31,6 +31,7 @@ public class EnemyWaveSystem : MonoBehaviour
         {
             currentWaveIndex++;
         }
+        BeginWave();
     }
 
     private void BeginWave()
@@ -81,6 +82,7 @@ public class EnemyWaveSystem : MonoBehaviour
         else
         {
             spawnTimer.Stop();
+            NextWave();
         }
     }
 

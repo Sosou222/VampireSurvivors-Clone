@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f8fa63b70fd1e6459905e96e5333df5, type: 3}
-  m_Name: Wave0
+  m_Name: Wave3
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
-  WaveName: Wave0
+  WaveName: Wave3
   EnemyGroups:
-  - EnemyCount: 10
-    EnemyPrefab: {fileID: 4306304855930674918, guid: c24e7575760345942bd6ee0e89420cc4, type: 3}
-    Pattern: 0
-  - EnemyCount: 10
+  - EnemyCount: 15
     EnemyPrefab: {fileID: 4306304855930674918, guid: cd6ce631468b7dd4fbe5fa662b049ecb, type: 3}
-    Pattern: 0
-  - EnemyCount: 10
-    EnemyPrefab: {fileID: 4306304855930674918, guid: 6b69cfdb97b4294499d403bac54ee384, type: 3}
-    Pattern: 0
-  SpawnInterval: 1.5
+    Pattern: 2
+  - EnemyCount: 15
+    EnemyPrefab: {fileID: 4306304855930674918, guid: cd6ce631468b7dd4fbe5fa662b049ecb, type: 3}
+    Pattern: 3
+  SpawnInterval: 0.01

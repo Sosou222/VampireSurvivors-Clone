@@ -3636,6 +3636,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveSystem
   waves:
   - {fileID: 11400000, guid: 83d9df2bcd6817d438952ededbf9645e, type: 2}
+  - {fileID: 11400000, guid: 689bceda000098d428dec2aee6c962e2, type: 2}
+  - {fileID: 11400000, guid: 6fea59a9586b39048b706ac057745800, type: 2}
+  - {fileID: 11400000, guid: 3a7db98aba81e2f418f2fe73efd3e3e8, type: 2}
+  - {fileID: 11400000, guid: de9689afd5a2d9e4a9400101b7dbcd37, type: 2}
+  - {fileID: 11400000, guid: 9f7eb004123e6834c990826dda458fed, type: 2}
+  - {fileID: 11400000, guid: 9f5a20fccec49b344bd85ef8a4088cd5, type: 2}
+  - {fileID: 11400000, guid: d9c65ffaed8371e4896c5584fed979b8, type: 2}
+  - {fileID: 11400000, guid: 5e9c71a49e147074396650eee85308ba, type: 2}
+  - {fileID: 11400000, guid: 4efe4fb7d5101aa489cd8337a72ff3e3, type: 2}
+  - {fileID: 11400000, guid: 3941d268939493141844a59634ea327b, type: 2}
 --- !u!1 &2120616554
 GameObject:
   m_ObjectHideFlags: 0
