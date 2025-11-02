@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static Sirenix.Reflection.Editor.GUILayoutUtility_Internals;
 
 public class GameManager : Singleton<GameManager>
 {
