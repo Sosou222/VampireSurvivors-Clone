@@ -9,13 +9,15 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         ExpierienceSystem.Instance.LeveledUp += OnLevelUp;
-        //Uncoment after debug later
-        //OnGameBegin();
+        OnGameBegin();
     }
 
 
     private void OnGameBegin()
     {
+        PauseSystem.Instance.UnPause();
+        InputManager.SetPlayerInputStatus(true);
+
         Player player = Instantiate(playerPrefab,new Vector2(0,0), Quaternion.identity);
         player.WeaponHolder.Add(startingWeapon);
     }

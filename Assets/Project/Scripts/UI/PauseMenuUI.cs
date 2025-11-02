@@ -8,5 +8,6 @@ public class PauseMenuUI : MonoBehaviour
     private void Start()
     {
         unpauseButton.onClick.AddListener(PauseSystem.Instance.UnPause);
+        unpauseButton.onClick.AddListener(() => gameObject.SetActive(false));
     }
 }
