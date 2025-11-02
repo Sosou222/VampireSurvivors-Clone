@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 2647687403092062357}
   - component: {fileID: 8170979026507094027}
   - component: {fileID: 5889303459689894001}
+  - component: {fileID: 3297195993794114646}
   m_Layer: 8
   m_Name: EnemyChicken
   m_TagString: Untagged
@@ -243,16 +244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 4
   animator: {fileID: 8170979026507094027}
-  targetPoint:
-    rid: 1438688409277169747
   <EnemyStats>k__BackingField: {fileID: 5889303459689894001}
   <EnemyView>k__BackingField: {fileID: 3249049780348390588}
-  references:
-    version: 2
-    RefIds:
-    - rid: 1438688409277169747
-      type: {class: TargetPointPlayer, ns: , asm: Assembly-CSharp}
-      data: 
 --- !u!114 &8170979026507094027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +274,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   enemyStatsData: {fileID: 11400000, guid: 1a920c85d45ff1f4ca561aa8609026dd, type: 2}
+--- !u!114 &3297195993794114646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306304855930674918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b220a4278f22de045b59508156440ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOnVanish
+  objectToDestroy: {fileID: 4306304855930674918}
 --- !u!1 &4762979155937658991
 GameObject:
   m_ObjectHideFlags: 0
