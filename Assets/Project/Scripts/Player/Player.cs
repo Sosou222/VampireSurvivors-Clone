@@ -21,11 +21,13 @@ public class Player : MonoBehaviour
         PlayerView.Setup(PlayerStats);
 
         PlayerStats.Health.HealthZeroReached += OnDie;
+
+        PlayerInfoSystem.Instance.SetPlayer(this);
     }
 
     private void OnEnable()
     {
-        PlayerInfoSystem.Instance.SetPlayer(this);
+        //PlayerInfoSystem.Instance.SetPlayer(this);
     }
 
     private void OnDisable()

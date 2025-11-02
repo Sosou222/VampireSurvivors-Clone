@@ -14,4 +14,14 @@ public class EnemyGroupData
 {
     public int EnemyCount; //How much spawn this wave
     public GameObject EnemyPrefab;
+    public SpawnEnemyPattern Pattern;
+}
+public enum SpawnEnemyPattern
+{
+    Random,
+    Circle,
+    Left,
+    Right,
+    Up,
+    Down,
 }

@@ -5,7 +5,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed = 4.0f;
     [SerializeField] private EnemyAnimator animator;
-    [SerializeReference] private ITargetPoint targetPoint;
 
     [field:SerializeField] public EnemyStats EnemyStats { get; private set; }
     [field:SerializeField] public EnemyView EnemyView { get; private set; }
@@ -16,9 +15,10 @@ public class Enemy : MonoBehaviour
     private Vector3 lastMoveDir = Vector3.zero;
     private Vector3 pointToMoveTo = Vector3.zero;
 
+    private ITargetPoint targetPoint;
+
     private void Start()
     {
-        targetPoint.Init();
         EnemyStats.Setup();
         EnemyView.Setup(EnemyStats);
 
@@ -36,6 +36,11 @@ public class Enemy : MonoBehaviour
     {
         EnemyStats.TakeDamage(damage);
         DamagePopUpCreator.Instance.CreatePopUp(transform.position, damage);
+    }
+
+    public void SetTargetPoint(ITargetPoint targetPoint)
+    {
+        this.targetPoint = targetPoint;
     }
 
 

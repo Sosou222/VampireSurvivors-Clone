@@ -16,4 +16,5 @@ MonoBehaviour:
   EnemyGroups:
   - EnemyCount: 20
     EnemyPrefab: {fileID: 4306304855930674918, guid: c24e7575760345942bd6ee0e89420cc4, type: 3}
-  SpawnInterval: 1.5
+    Pattern: 1
+  SpawnInterval: 0

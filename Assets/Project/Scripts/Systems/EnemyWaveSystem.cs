@@ -7,6 +7,7 @@ public class EnemyWaveSystem : MonoBehaviour
     {
         public int AmountToSpawn;
         public GameObject EnemyPrefab;
+        public SpawnEnemyPattern Pattern;
     }
 
     [SerializeField] private List<WaveData> waves;
@@ -42,7 +43,8 @@ public class EnemyWaveSystem : MonoBehaviour
             EnemyGroup enemyGroup = new EnemyGroup()
             {
                 AmountToSpawn = data.EnemyCount,
-                EnemyPrefab = data.EnemyPrefab
+                EnemyPrefab = data.EnemyPrefab,
+                Pattern = data.Pattern
             };
             enemiesToSpawn.Add(enemyGroup);
         }
@@ -68,9 +70,13 @@ public class EnemyWaveSystem : MonoBehaviour
             EnemyGroup group = possibleEnemies[Random.Range(0,possibleEnemies.Count-1)];
             group.AmountToSpawn--;
 
-            Vector3 pos = GetPositionOutsideCameraView();
+            Vector3 pos = GetPositionOutsideCameraView(group.Pattern);
 
-            Instantiate(group.EnemyPrefab,pos,Quaternion.identity);
+            GameObject enemy = Instantiate(group.EnemyPrefab,pos,Quaternion.identity);
+            if(enemy.TryGetComponent(out Enemy e))
+            {
+                SetEnemyMovement(group.Pattern, e);
+            }
         }
         else
         {
@@ -78,7 +84,54 @@ public class EnemyWaveSystem : MonoBehaviour
         }
     }
 
-    private Vector3 GetPositionOutsideCameraView()
+    private void SetEnemyMovement(SpawnEnemyPattern pattern,Enemy enemy)
+    {
+        if (pattern == SpawnEnemyPattern.Random)
+        {
+            enemy.SetTargetPoint(new TargetPointPlayer());
+        }
+        if (pattern == SpawnEnemyPattern.Circle)
+        {
+            TargetPointStatic s = new TargetPointStatic();
+
+            s.SetPoint(PlayerInfoSystem.Instance.GetPosition());
+            enemy.SetTargetPoint(s);
+        }
+        if(pattern == SpawnEnemyPattern.Left)
+        {
+            TargetPointStatic s = new TargetPointStatic();
+            Vector3 walk = new Vector3(20, 0, 0);
+
+            s.SetPoint(enemy.transform.position + walk);
+            enemy.SetTargetPoint(s);
+        }
+        if (pattern == SpawnEnemyPattern.Right)
+        {
+            TargetPointStatic s = new TargetPointStatic();
+            Vector3 walk = new Vector3(-20, 0, 0);
+
+            s.SetPoint(enemy.transform.position + walk);
+            enemy.SetTargetPoint(s);
+        }
+        if (pattern == SpawnEnemyPattern.Down)
+        {
+            TargetPointStatic s = new TargetPointStatic();
+            Vector3 walk = new Vector3(0, 20, 0);
+
+            s.SetPoint(enemy.transform.position + walk);
+            enemy.SetTargetPoint(s);
+        }
+        if (pattern == SpawnEnemyPattern.Up)
+        {
+            TargetPointStatic s = new TargetPointStatic();
+            Vector3 walk = new Vector3(0, -20, 0);
+
+            s.SetPoint(enemy.transform.position + walk);
+            enemy.SetTargetPoint(s);
+        }
+    }
+
+    private Vector3 GetPositionOutsideCameraView(SpawnEnemyPattern pattern)
     {
         Vector3 downLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, Camera.main.nearClipPlane));
         Vector3 upRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane));
@@ -87,7 +140,31 @@ public class EnemyWaveSystem : MonoBehaviour
         downLeft -= new Vector3(extraPadding, extraPadding, 0);
         upRight += new Vector3(extraPadding, extraPadding, 0);
 
-        Vector3 point = GetPointOutsideRect(downLeft, upRight,2.0f);
+        Vector3 point = new Vector3(0, 0, 0);
+        float range = 2.0f;
+        switch (pattern)
+        {
+            case SpawnEnemyPattern.Random:
+            case SpawnEnemyPattern.Circle:
+                point = GetPointOutsideRect(downLeft, upRight, range);
+                break;
+
+            case SpawnEnemyPattern.Left:
+                point = new Vector3(downLeft.x - range, Random.Range(downLeft.y, upRight.y), 0);
+                break;
+
+            case SpawnEnemyPattern.Right:
+                point = new Vector3(upRight.x + range, Random.Range(downLeft.y, upRight.y), 0);
+                break;
+
+            case SpawnEnemyPattern.Up:
+                point = new Vector3(Random.Range(downLeft.x, upRight.x), upRight.y + range, 0);
+                break;
+
+            case SpawnEnemyPattern.Down:
+                point = new Vector3(Random.Range(downLeft.x, upRight.x), downLeft.y - range, 0);
+                break;
+        }
 
         return point;
     }
