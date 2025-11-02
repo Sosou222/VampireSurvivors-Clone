@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static Sirenix.Reflection.Editor.GUILayoutUtility_Internals;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -11,6 +12,8 @@ public class GameManager : Singleton<GameManager>
     private void OnLevelUp(int level)
     {
         List<UpgradeCardInfo> upgradeInfo = CreateUpgradeCardInfoList();
+        upgradeInfo.AddRange(CreateUpgradeCardInfoFromItemsList());
+
         upgradeInfo.Shuffle();
         int maxUpgradeCards = 3;
         List<UpgradeCardInfo> upgradeInfoSent = new();
@@ -73,6 +76,33 @@ public class GameManager : Singleton<GameManager>
 
 
         }
+        return upgradeInfo;
+    }
+
+    private List<UpgradeCardInfo> CreateUpgradeCardInfoFromItemsList()
+    {
+        List<UpgradeCardInfo> upgradeInfo = new();
+        if (PlayerInfoSystem.Instance.TryGetPlayer(out Player player))
+        {
+            List<PassiveItemBase> items = PassiveItemDataHolder.Instance.GetItemsBuffs();
+
+            //Might wanna add check if set multiplayer is at max
+
+            foreach (PassiveItemBase item in items)
+            {
+                UpgradeCardInfo upgradeCardInfo = new UpgradeCardInfo()
+                {
+                    TitleText = item.Name,
+                    DescriptionText = item.Description,
+                    OnClickAction = () =>
+                    {
+                        player.PlayerStats.AddPassiveItem(item);
+                    }
+                };
+                upgradeInfo.Add(upgradeCardInfo);
+            }
+        }
+
         return upgradeInfo;
     }
 }

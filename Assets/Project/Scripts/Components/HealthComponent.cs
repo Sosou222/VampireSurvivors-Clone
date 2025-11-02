@@ -32,6 +32,11 @@ public class HealthComponent
         }
 
         InfoChanged.Invoke(this);
+
+        if(Health <= 0 )
+        {
+            HealthZeroReached?.Invoke();
+        }
     }
 
     public void SetHP(int health)

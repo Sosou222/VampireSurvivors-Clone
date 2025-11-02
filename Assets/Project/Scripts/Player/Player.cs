@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 moveDir = InputManager.GetPlayerMove() * speed * Time.deltaTime;
+        Vector3 moveDir = InputManager.GetPlayerMove() * speed * PlayerStats.SpeedMultiplayer * Time.deltaTime;
         transform.position += moveDir;
 
         if(lastMoveDir != moveDir)
