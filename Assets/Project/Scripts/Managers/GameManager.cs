@@ -4,9 +4,20 @@ using static Sirenix.Reflection.Editor.GUILayoutUtility_Internals;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private Player playerPrefab;
+    [SerializeField] private WeaponData startingWeapon;
     private void Start()
     {
         ExpierienceSystem.Instance.LeveledUp += OnLevelUp;
+        //Uncoment after debug later
+        //OnGameBegin();
+    }
+
+
+    private void OnGameBegin()
+    {
+        Player player = Instantiate(playerPrefab,new Vector2(0,0), Quaternion.identity);
+        player.WeaponHolder.Add(startingWeapon);
     }
 
     private void OnLevelUp(int level)
